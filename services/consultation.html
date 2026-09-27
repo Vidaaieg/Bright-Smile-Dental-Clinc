@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Consultation | Bright Smile Clinic</title>
+   <meta name="description" content="A first visit where we examine your mouth, explain what we find and plan your treatment.">
+
+   <!-- fonts and icons (Cairo carries the Arabic glyphs) -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+   <link rel="alternate icon" href="../images/favicon.png">
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="../lang/translations.js" defer></script>
+   <script src="../lang/services.js" defer></script>
+   <script src="../js/supabase-client.js" defer></script>
+   <script src="../js/dental.js" defer></script>
+   <script src="../js/auth.js" defer></script>
+   <script src="../js/analytics.js" defer></script>
+   <script src="../js/bg-tooth.js" defer></script>
+</head>
+
+<body>
+
+<div class="bg-tooth" aria-hidden="true">
+   <div class="bg-tooth-3d" id="bg-tooth-3d">
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--front"></i>
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--back"></i>
+   </div>
+</div>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+   <div class="container header-inner">
+
+      <a href="../index.html#home" class="logo" aria-label="Bright Smile Clinic — home">
+         <img src="../images/logo.svg" alt="" class="logo-mark" width="44" height="44">
+         <span class="logo-text"><span class="logo-name">Bright <span>Smile</span></span><span class="logo-sub">Clinic</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+         <a href="../index.html#home" data-i18n="nav.home">Home</a>
+         <a href="../index.html#about" data-i18n="nav.about">About</a>
+      <a href="../index.html#services" class="current" aria-current="true" data-i18n="nav.services">Services</a>
+         <a href="../pages/contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang-switch">
+         <select id="lang-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="ar">ع</option>
+            <option value="de">DE</option>
+            <option value="ru">RU</option>
+         </select>
+      </div>
+
+      <div class="header-actions">
+         <a href="../pages/login.html" class="link-btn" data-i18n="btn.login">Login</a>
+         <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.appointment">Make Appointment</a>
+      </div>
+
+      <button type="button" id="menu-btn" class="menu-btn" data-i18n-aria="nav.menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
+         <span></span>
+         <span></span>
+         <span></span>
+      </button>
+
+   </div>
+
+</header>
+
+<!-- header section ends -->
+
+<main>
+
+   <section class="page-hero">
+      <div class="container">
+         <p class="breadcrumb">
+            <a href="../index.html#home" data-i18n="nav.home">Home</a><span class="sep">/</span>
+            <a href="../index.html#services" data-i18n="nav.services">Services</a><span class="sep">/</span>
+            <span data-i18n="svc.consultation.title">Consultation</span>
+         </p>
+         <h1 data-i18n="svc.consultation.title">Consultation</h1>
+         <p data-i18n="svc.consultation.tagline">A first visit where we examine your mouth, explain what we find and plan your treatment.</p>
+      </div>
+   </section>
+
+   <section class="detail">
+
+      <div class="container detail-grid">
+
+         <div class="detail-content">
+
+            <div class="detail-figure">
+               <i class="fas fa-user-doctor"></i>
+            </div>
+
+            <p data-i18n="svc.consultation.intro">Everything starts here. A consultation is the appointment where we find out what is actually going on, rather than guessing. You get an honest assessment, a written plan and a cost before any treatment begins — and you are free to think about it before agreeing to anything.</p>
+
+            <h2 data-i18n="detail.involves">What the treatment involves</h2>
+            <p data-i18n="svc.consultation.involves">We ask about your medical history, any medication you take and what brought you in. Then we examine your teeth, gums, bite and the soft tissues of your mouth, taking X-rays only where they will change what we recommend. We show you what we found, explain which problems need attention now and which can wait, and give you the cost of each option in writing.</p>
+
+            <h2 data-i18n="detail.included">What is included</h2>
+            <ul class="check-list">
+            <li data-i18n="svc.consultation.inc1">A full review of your medical and dental history</li>
+            <li data-i18n="svc.consultation.inc2">Examination of your teeth, gums, bite and soft tissues</li>
+            <li data-i18n="svc.consultation.inc3">X-rays where they are needed for the diagnosis</li>
+            <li data-i18n="svc.consultation.inc4">A written treatment plan with costs and priorities</li>
+            <li data-i18n="svc.consultation.inc5">Time to ask questions without being rushed</li>
+            </ul>
+
+            <h2 data-i18n="detail.steps">Step by step</h2>
+            <ol class="steps">
+            <li data-i18n="svc.consultation.step1">We go through your medical history and what brought you in.</li>
+            <li data-i18n="svc.consultation.step2">A full examination of your mouth, teeth and gums.</li>
+            <li data-i18n="svc.consultation.step3">X-rays are taken only if they will affect the diagnosis.</li>
+            <li data-i18n="svc.consultation.step4">We explain what we found, in plain language.</li>
+            <li data-i18n="svc.consultation.step5">You leave with a written plan, the costs, and no obligation.</li>
+            </ol>
+
+            <h2 data-i18n="detail.aftercare">Aftercare</h2>
+            <p data-i18n="svc.consultation.aftercare">There is nothing to recover from after a consultation. Take the written plan home and read it properly — a good clinic will never pressure you to decide in the chair. If you want a second opinion, ask us for a copy of your X-rays and notes; you are entitled to them. Book the first treatment when you are ready.</p>
+
+         </div>
+
+         <aside class="detail-aside">
+            <h3 data-i18n="detail.facts">Quick facts</h3>
+            <ul class="facts">
+            <li><strong data-i18n="svc.consultation.fact1.label">Appointment length</strong> <span data-i18n="svc.consultation.fact1.value">30 to 45 minutes</span></li>
+            <li><strong data-i18n="svc.consultation.fact2.label">X-rays</strong> <span data-i18n="svc.consultation.fact2.value">Only when needed</span></li>
+            <li><strong data-i18n="svc.consultation.fact3.label">Anaesthesia</strong> <span data-i18n="svc.consultation.fact3.value">Not needed</span></li>
+            <li><strong data-i18n="svc.consultation.fact4.label">You leave with</strong> <span data-i18n="svc.consultation.fact4.value">A written plan and costs</span></li>
+            </ul>
+            <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.bookTreatment">Book this treatment</a>
+         </aside>
+
+      </div>
+
+   </section>
+
+   <section class="services related">
+
+      <h1 class="heading" data-i18n="detail.related">related services</h1>
+
+      <div class="box-container container">
+
+         <a href="cavity-inspection.html" class="box">
+            <span class="box-icon"><i class="fas fa-magnifying-glass"></i></span>
+            <h3 data-i18n="svc.cavity-inspection.title">Cavity Inspection</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="oral-hygiene.html" class="box">
+            <span class="box-icon"><i class="fas fa-soap"></i></span>
+            <h3 data-i18n="svc.oral-hygiene.title">Oral Hygiene Experts</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="dental-advisory.html" class="box">
+            <span class="box-icon"><i class="fas fa-headset"></i></span>
+            <h3 data-i18n="svc.dental-advisory.title">Live Dental Advisory</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+      </div>
+
+   </section>
+
+</main>
+
+<footer class="site-footer">
+   <p class="credit">&copy; <span data-year>2026</span> <span class="brand">Bright Smile Clinic</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+</footer>
+
+</body>
+
+</html>

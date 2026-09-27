@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Pediatric Dentistry | Bright Smile Clinic</title>
+   <meta name="description" content="Gentle, unhurried dental care for children, in a way that does not put them off for life.">
+
+   <!-- fonts and icons (Cairo carries the Arabic glyphs) -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+   <link rel="alternate icon" href="../images/favicon.png">
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="../lang/translations.js" defer></script>
+   <script src="../lang/services.js" defer></script>
+   <script src="../js/supabase-client.js" defer></script>
+   <script src="../js/dental.js" defer></script>
+   <script src="../js/auth.js" defer></script>
+   <script src="../js/analytics.js" defer></script>
+   <script src="../js/bg-tooth.js" defer></script>
+</head>
+
+<body>
+
+<div class="bg-tooth" aria-hidden="true">
+   <div class="bg-tooth-3d" id="bg-tooth-3d">
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--front"></i>
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--back"></i>
+   </div>
+</div>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+   <div class="container header-inner">
+
+      <a href="../index.html#home" class="logo" aria-label="Bright Smile Clinic — home">
+         <img src="../images/logo.svg" alt="" class="logo-mark" width="44" height="44">
+         <span class="logo-text"><span class="logo-name">Bright <span>Smile</span></span><span class="logo-sub">Clinic</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+         <a href="../index.html#home" data-i18n="nav.home">Home</a>
+         <a href="../index.html#about" data-i18n="nav.about">About</a>
+      <a href="../index.html#services" class="current" aria-current="true" data-i18n="nav.services">Services</a>
+         <a href="../pages/contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang-switch">
+         <select id="lang-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="ar">ع</option>
+            <option value="de">DE</option>
+            <option value="ru">RU</option>
+         </select>
+      </div>
+
+      <div class="header-actions">
+         <a href="../pages/login.html" class="link-btn" data-i18n="btn.login">Login</a>
+         <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.appointment">Make Appointment</a>
+      </div>
+
+      <button type="button" id="menu-btn" class="menu-btn" data-i18n-aria="nav.menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
+         <span></span>
+         <span></span>
+         <span></span>
+      </button>
+
+   </div>
+
+</header>
+
+<!-- header section ends -->
+
+<main>
+
+   <section class="page-hero">
+      <div class="container">
+         <p class="breadcrumb">
+            <a href="../index.html#home" data-i18n="nav.home">Home</a><span class="sep">/</span>
+            <a href="../index.html#services" data-i18n="nav.services">Services</a><span class="sep">/</span>
+            <span data-i18n="svc.pediatric-dentistry.title">Pediatric Dentistry</span>
+         </p>
+         <h1 data-i18n="svc.pediatric-dentistry.title">Pediatric Dentistry</h1>
+         <p data-i18n="svc.pediatric-dentistry.tagline">Gentle, unhurried dental care for children, in a way that does not put them off for life.</p>
+      </div>
+   </section>
+
+   <section class="detail">
+
+      <div class="container detail-grid">
+
+         <div class="detail-content">
+
+            <div class="detail-figure">
+               <i class="fas fa-child-reaching"></i>
+            </div>
+
+            <p data-i18n="svc.pediatric-dentistry.intro">A child who has a bad first experience at the dentist can avoid the chair for twenty years. We take the time to explain what we are doing in words a child understands, and we never rush a nervous patient.</p>
+
+            <h2 data-i18n="detail.involves">What the treatment involves</h2>
+            <p data-i18n="svc.pediatric-dentistry.involves">Children should have their first visit when the first tooth appears, and every six months after that. Early visits are mostly about getting comfortable in the chair. As the adult teeth come through we apply fluoride and place sealants in the deep grooves of the back teeth, which is where most childhood decay begins. When a filling is needed we use tooth-coloured material, and stainless steel crowns for badly damaged baby teeth.</p>
+
+            <h2 data-i18n="detail.included">What is included</h2>
+            <ul class="check-list">
+            <li data-i18n="svc.pediatric-dentistry.inc1">Check-ups from the first tooth onwards</li>
+            <li data-i18n="svc.pediatric-dentistry.inc2">Fluoride varnish to strengthen developing enamel</li>
+            <li data-i18n="svc.pediatric-dentistry.inc3">Fissure sealants on the back teeth</li>
+            <li data-i18n="svc.pediatric-dentistry.inc4">Tooth-coloured fillings and stainless steel crowns</li>
+            <li data-i18n="svc.pediatric-dentistry.inc5">Advice for parents on brushing, diet and thumb sucking</li>
+            </ul>
+
+            <h2 data-i18n="detail.steps">Step by step</h2>
+            <ol class="steps">
+            <li data-i18n="svc.pediatric-dentistry.step1">A relaxed first visit so your child gets used to the chair.</li>
+            <li data-i18n="svc.pediatric-dentistry.step2">We count and check the teeth, showing your child each instrument.</li>
+            <li data-i18n="svc.pediatric-dentistry.step3">Fluoride varnish is applied and sealants placed where needed.</li>
+            <li data-i18n="svc.pediatric-dentistry.step4">Any treatment is explained to your child before it starts.</li>
+            <li data-i18n="svc.pediatric-dentistry.step5">We agree a brushing routine with you before you leave.</li>
+            </ol>
+
+            <h2 data-i18n="detail.aftercare">Aftercare</h2>
+            <p data-i18n="svc.pediatric-dentistry.aftercare">After fluoride varnish, avoid hot drinks and hard food for a few hours. Children under seven should have their brushing supervised — they do not have the coordination to reach the back teeth properly. Keep sugary drinks to mealtimes rather than sipping through the day, as the constant acid is what does the damage.</p>
+
+         </div>
+
+         <aside class="detail-aside">
+            <h3 data-i18n="detail.facts">Quick facts</h3>
+            <ul class="facts">
+            <li><strong data-i18n="svc.pediatric-dentistry.fact1.label">Appointment length</strong> <span data-i18n="svc.pediatric-dentistry.fact1.value">20 to 40 minutes</span></li>
+            <li><strong data-i18n="svc.pediatric-dentistry.fact2.label">First visit</strong> <span data-i18n="svc.pediatric-dentistry.fact2.value">When the first tooth appears</span></li>
+            <li><strong data-i18n="svc.pediatric-dentistry.fact3.label">How often</strong> <span data-i18n="svc.pediatric-dentistry.fact3.value">Every 6 months</span></li>
+            <li><strong data-i18n="svc.pediatric-dentistry.fact4.label">Parents</strong> <span data-i18n="svc.pediatric-dentistry.fact4.value">Welcome to stay in the room</span></li>
+            </ul>
+            <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.bookTreatment">Book this treatment</a>
+         </aside>
+
+      </div>
+
+   </section>
+
+   <section class="services related">
+
+      <h1 class="heading" data-i18n="detail.related">related services</h1>
+
+      <div class="box-container container">
+
+         <a href="cavity-inspection.html" class="box">
+            <span class="box-icon"><i class="fas fa-magnifying-glass"></i></span>
+            <h3 data-i18n="svc.cavity-inspection.title">Cavity Inspection</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="oral-hygiene.html" class="box">
+            <span class="box-icon"><i class="fas fa-soap"></i></span>
+            <h3 data-i18n="svc.oral-hygiene.title">Oral Hygiene Experts</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="alignment.html" class="box">
+            <span class="box-icon"><i class="fas fa-teeth"></i></span>
+            <h3 data-i18n="svc.alignment.title">Alignment Specialist</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+      </div>
+
+   </section>
+
+</main>
+
+<footer class="site-footer">
+   <p class="credit">&copy; <span data-year>2026</span> <span class="brand">Bright Smile Clinic</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+</footer>
+
+</body>
+
+</html>

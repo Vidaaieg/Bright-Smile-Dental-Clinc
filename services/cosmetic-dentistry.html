@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Cosmetic Dentistry | Bright Smile Clinic</title>
+   <meta name="description" content="Whitening, veneers, crowns and reshaping to give you a smile you are happy to show.">
+
+   <!-- fonts and icons (Cairo carries the Arabic glyphs) -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+   <link rel="alternate icon" href="../images/favicon.png">
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="../lang/translations.js" defer></script>
+   <script src="../lang/services.js" defer></script>
+   <script src="../js/supabase-client.js" defer></script>
+   <script src="../js/dental.js" defer></script>
+   <script src="../js/auth.js" defer></script>
+   <script src="../js/analytics.js" defer></script>
+   <script src="../js/bg-tooth.js" defer></script>
+</head>
+
+<body>
+
+<div class="bg-tooth" aria-hidden="true">
+   <div class="bg-tooth-3d" id="bg-tooth-3d">
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--front"></i>
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--back"></i>
+   </div>
+</div>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+   <div class="container header-inner">
+
+      <a href="../index.html#home" class="logo" aria-label="Bright Smile Clinic — home">
+         <img src="../images/logo.svg" alt="" class="logo-mark" width="44" height="44">
+         <span class="logo-text"><span class="logo-name">Bright <span>Smile</span></span><span class="logo-sub">Clinic</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+         <a href="../index.html#home" data-i18n="nav.home">Home</a>
+         <a href="../index.html#about" data-i18n="nav.about">About</a>
+      <a href="../index.html#services" class="current" aria-current="true" data-i18n="nav.services">Services</a>
+         <a href="../pages/contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang-switch">
+         <select id="lang-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="ar">ع</option>
+            <option value="de">DE</option>
+            <option value="ru">RU</option>
+         </select>
+      </div>
+
+      <div class="header-actions">
+         <a href="../pages/login.html" class="link-btn" data-i18n="btn.login">Login</a>
+         <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.appointment">Make Appointment</a>
+      </div>
+
+      <button type="button" id="menu-btn" class="menu-btn" data-i18n-aria="nav.menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
+         <span></span>
+         <span></span>
+         <span></span>
+      </button>
+
+   </div>
+
+</header>
+
+<!-- header section ends -->
+
+<main>
+
+   <section class="page-hero">
+      <div class="container">
+         <p class="breadcrumb">
+            <a href="../index.html#home" data-i18n="nav.home">Home</a><span class="sep">/</span>
+            <a href="../index.html#services" data-i18n="nav.services">Services</a><span class="sep">/</span>
+            <span data-i18n="svc.cosmetic-dentistry.title">Cosmetic Dentistry</span>
+         </p>
+         <h1 data-i18n="svc.cosmetic-dentistry.title">Cosmetic Dentistry</h1>
+         <p data-i18n="svc.cosmetic-dentistry.tagline">Whitening, veneers, crowns and reshaping to give you a smile you are happy to show.</p>
+      </div>
+   </section>
+
+   <section class="detail">
+
+      <div class="container detail-grid">
+
+         <div class="detail-content">
+
+            <div class="detail-figure">
+               <i class="fas fa-wand-magic-sparkles"></i>
+            </div>
+
+            <p data-i18n="svc.cosmetic-dentistry.intro">Cosmetic dentistry covers the treatments that change how your teeth look: their colour, their shape and the way they line up when you smile. Most of what we do here is quick, and several treatments can be finished in a single visit.</p>
+
+            <h2 data-i18n="detail.involves">What the treatment involves</h2>
+            <p data-i18n="svc.cosmetic-dentistry.involves">We begin by listening to what you want to change, then check that the teeth underneath are healthy — there is no point placing a veneer over decay. Whitening lifts staining from coffee, tea and smoking. Veneers are thin shells bonded to the front of a tooth to correct its shape or colour. Crowns rebuild a tooth that is badly worn or broken. Reshaping smooths away small chips and uneven edges.</p>
+
+            <h2 data-i18n="detail.included">What is included</h2>
+            <ul class="check-list">
+            <li data-i18n="svc.cosmetic-dentistry.inc1">A smile assessment and a discussion of realistic results</li>
+            <li data-i18n="svc.cosmetic-dentistry.inc2">Professional teeth whitening</li>
+            <li data-i18n="svc.cosmetic-dentistry.inc3">Porcelain and composite veneers</li>
+            <li data-i18n="svc.cosmetic-dentistry.inc4">Dental crowns and tooth-coloured fillings</li>
+            <li data-i18n="svc.cosmetic-dentistry.inc5">Teeth reshaping and edge polishing</li>
+            </ul>
+
+            <h2 data-i18n="detail.steps">Step by step</h2>
+            <ol class="steps">
+            <li data-i18n="svc.cosmetic-dentistry.step1">Consultation: we look at your teeth and talk through the options.</li>
+            <li data-i18n="svc.cosmetic-dentistry.step2">A health check to make sure the teeth and gums are ready.</li>
+            <li data-i18n="svc.cosmetic-dentistry.step3">We agree the shade and shape you want.</li>
+            <li data-i18n="svc.cosmetic-dentistry.step4">The treatment is carried out, often in one or two visits.</li>
+            <li data-i18n="svc.cosmetic-dentistry.step5">A short review appointment to check you are happy with the result.</li>
+            </ol>
+
+            <h2 data-i18n="detail.aftercare">Aftercare</h2>
+            <p data-i18n="svc.cosmetic-dentistry.aftercare">Whitened teeth stain again if you go straight back to coffee, tea, red wine and smoking, so we ask you to avoid them for the first 48 hours. Veneers and crowns are cleaned exactly like natural teeth: brush twice a day and floss. Avoid biting your nails or opening packaging with your front teeth, as porcelain can chip.</p>
+
+         </div>
+
+         <aside class="detail-aside">
+            <h3 data-i18n="detail.facts">Quick facts</h3>
+            <ul class="facts">
+            <li><strong data-i18n="svc.cosmetic-dentistry.fact1.label">Treatment time</strong> <span data-i18n="svc.cosmetic-dentistry.fact1.value">1 to 3 visits</span></li>
+            <li><strong data-i18n="svc.cosmetic-dentistry.fact2.label">Appointment length</strong> <span data-i18n="svc.cosmetic-dentistry.fact2.value">45 to 90 minutes</span></li>
+            <li><strong data-i18n="svc.cosmetic-dentistry.fact3.label">Anaesthesia</strong> <span data-i18n="svc.cosmetic-dentistry.fact3.value">Only for veneers and crowns</span></li>
+            <li><strong data-i18n="svc.cosmetic-dentistry.fact4.label">Results last</strong> <span data-i18n="svc.cosmetic-dentistry.fact4.value">5 to 15 years</span></li>
+            </ul>
+            <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.bookTreatment">Book this treatment</a>
+         </aside>
+
+      </div>
+
+   </section>
+
+   <section class="services related">
+
+      <h1 class="heading" data-i18n="detail.related">related services</h1>
+
+      <div class="box-container container">
+
+         <a href="alignment.html" class="box">
+            <span class="box-icon"><i class="fas fa-teeth"></i></span>
+            <h3 data-i18n="svc.alignment.title">Alignment Specialist</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="dental-implants.html" class="box">
+            <span class="box-icon"><i class="fas fa-tooth"></i></span>
+            <h3 data-i18n="svc.dental-implants.title">Dental Implants</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="oral-hygiene.html" class="box">
+            <span class="box-icon"><i class="fas fa-soap"></i></span>
+            <h3 data-i18n="svc.oral-hygiene.title">Oral Hygiene Experts</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+      </div>
+
+   </section>
+
+</main>
+
+<footer class="site-footer">
+   <p class="credit">&copy; <span data-year>2026</span> <span class="brand">Bright Smile Clinic</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+</footer>
+
+</body>
+
+</html>

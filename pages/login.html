@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login | Bright Smile Clinic</title>
+   <meta name="description" content="Log in to your Bright Smile Clinic account to manage your appointments.">
+
+   <!-- fonts and icons (Cairo carries the Arabic glyphs) -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+   <link rel="alternate icon" href="../images/favicon.png">
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="../lang/translations.js" defer></script>
+   <script src="../js/supabase-client.js" defer></script>
+   <script src="../js/dental.js" defer></script>
+   <script src="../js/auth.js" defer></script>
+   <script src="../js/analytics.js" defer></script>
+   <script src="../js/bg-tooth.js" defer></script>
+</head>
+
+<body>
+
+<div class="bg-tooth" aria-hidden="true">
+   <div class="bg-tooth-3d" id="bg-tooth-3d">
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--front"></i>
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--back"></i>
+   </div>
+</div>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+   <div class="container header-inner">
+
+      <a href="../index.html#home" class="logo" aria-label="Bright Smile Clinic — home">
+         <img src="../images/logo.svg" alt="" class="logo-mark" width="44" height="44">
+         <span class="logo-text"><span class="logo-name">Bright <span>Smile</span></span><span class="logo-sub">Clinic</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+         <a href="../index.html#home" data-i18n="nav.home">Home</a>
+         <a href="../index.html#about" data-i18n="nav.about">About</a>
+         <a href="../index.html#services" data-i18n="nav.services">Services</a>
+         <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang-switch">
+         <select id="lang-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="ar">ع</option>
+            <option value="de">DE</option>
+            <option value="ru">RU</option>
+         </select>
+      </div>
+
+      <div class="header-actions">
+         <a href="login.html" class="link-btn" data-i18n="btn.login">Login</a>
+         <a href="appointment.html" class="link-btn" data-i18n="btn.appointment">Make Appointment</a>
+      </div>
+
+      <button type="button" id="menu-btn" class="menu-btn" data-i18n-aria="nav.menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
+         <span></span>
+         <span></span>
+         <span></span>
+      </button>
+
+   </div>
+
+</header>
+
+<!-- header section ends -->
+
+<main>
+
+   <section class="form-section">
+
+      <h1 class="heading" data-i18n="login.heading">Login</h1>
+
+      <form id="loginForm">
+
+         <label for="email" data-i18n="login.email">Email</label>
+         <input type="email" id="email" name="email" placeholder="Eg. example@gmail.com" data-i18n-placeholder="signup.email.ph" class="box" autocomplete="email" required>
+
+         <label for="password" data-i18n="login.password">Password</label>
+         <input type="password" id="password" name="password" placeholder="Enter your password" data-i18n-placeholder="login.password.ph" class="box" autocomplete="current-password" required>
+
+         <div class="form-actions">
+            <button type="submit" class="link-btn" data-i18n="btn.login">Login</button>
+            <p><a href="#" class="forgot-password" data-i18n="login.forgot">Forgot your password?</a></p>
+            <p><span data-i18n="login.noAccount">Don't have an account?</span> <a href="signup.html" data-i18n="btn.signup">Sign Up</a></p>
+         </div>
+
+      </form>
+
+   </section>
+
+</main>
+
+<footer class="site-footer">
+   <p class="credit">&copy; <span data-year>2026</span> <span class="brand">Bright Smile Clinic</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+</footer>
+
+</body>
+
+</html>

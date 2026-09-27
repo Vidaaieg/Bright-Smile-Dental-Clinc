@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Alignment Specialist | Bright Smile Clinic</title>
+   <meta name="description" content="Braces and clear aligners that straighten your teeth and correct your bite.">
+
+   <!-- fonts and icons (Cairo carries the Arabic glyphs) -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+   <link rel="alternate icon" href="../images/favicon.png">
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="../lang/translations.js" defer></script>
+   <script src="../lang/services.js" defer></script>
+   <script src="../js/supabase-client.js" defer></script>
+   <script src="../js/dental.js" defer></script>
+   <script src="../js/auth.js" defer></script>
+   <script src="../js/analytics.js" defer></script>
+   <script src="../js/bg-tooth.js" defer></script>
+</head>
+
+<body>
+
+<div class="bg-tooth" aria-hidden="true">
+   <div class="bg-tooth-3d" id="bg-tooth-3d">
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--front"></i>
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--back"></i>
+   </div>
+</div>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+   <div class="container header-inner">
+
+      <a href="../index.html#home" class="logo" aria-label="Bright Smile Clinic — home">
+         <img src="../images/logo.svg" alt="" class="logo-mark" width="44" height="44">
+         <span class="logo-text"><span class="logo-name">Bright <span>Smile</span></span><span class="logo-sub">Clinic</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+         <a href="../index.html#home" data-i18n="nav.home">Home</a>
+         <a href="../index.html#about" data-i18n="nav.about">About</a>
+      <a href="../index.html#services" class="current" aria-current="true" data-i18n="nav.services">Services</a>
+         <a href="../pages/contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang-switch">
+         <select id="lang-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="ar">ع</option>
+            <option value="de">DE</option>
+            <option value="ru">RU</option>
+         </select>
+      </div>
+
+      <div class="header-actions">
+         <a href="../pages/login.html" class="link-btn" data-i18n="btn.login">Login</a>
+         <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.appointment">Make Appointment</a>
+      </div>
+
+      <button type="button" id="menu-btn" class="menu-btn" data-i18n-aria="nav.menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
+         <span></span>
+         <span></span>
+         <span></span>
+      </button>
+
+   </div>
+
+</header>
+
+<!-- header section ends -->
+
+<main>
+
+   <section class="page-hero">
+      <div class="container">
+         <p class="breadcrumb">
+            <a href="../index.html#home" data-i18n="nav.home">Home</a><span class="sep">/</span>
+            <a href="../index.html#services" data-i18n="nav.services">Services</a><span class="sep">/</span>
+            <span data-i18n="svc.alignment.title">Alignment Specialist</span>
+         </p>
+         <h1 data-i18n="svc.alignment.title">Alignment Specialist</h1>
+         <p data-i18n="svc.alignment.tagline">Braces and clear aligners that straighten your teeth and correct your bite.</p>
+      </div>
+   </section>
+
+   <section class="detail">
+
+      <div class="container detail-grid">
+
+         <div class="detail-content">
+
+            <div class="detail-figure">
+               <i class="fas fa-teeth"></i>
+            </div>
+
+            <p data-i18n="svc.alignment.intro">Crowded, gapped or protruding teeth are harder to clean and put uneven pressure on your jaw. Our orthodontic treatments move your teeth into the right position gradually and safely, using either fixed braces or removable clear aligners.</p>
+
+            <h2 data-i18n="detail.involves">What the treatment involves</h2>
+            <p data-i18n="svc.alignment.involves">We start with a full assessment of your bite, including photographs, impressions and an X-ray. From that we build a treatment plan that shows how your teeth will move and roughly how long it will take. You then choose the appliance that suits your routine and budget: metal braces, ceramic braces, or clear aligners you can take out to eat and brush.</p>
+
+            <h2 data-i18n="detail.included">What is included</h2>
+            <ul class="check-list">
+            <li data-i18n="svc.alignment.inc1">Orthodontic assessment with photographs, impressions and X-rays</li>
+            <li data-i18n="svc.alignment.inc2">A written treatment plan with the expected duration</li>
+            <li data-i18n="svc.alignment.inc3">Metal, ceramic or clear aligner options</li>
+            <li data-i18n="svc.alignment.inc4">Adjustment visits every four to six weeks</li>
+            <li data-i18n="svc.alignment.inc5">Retainers to hold the result once the braces come off</li>
+            </ul>
+
+            <h2 data-i18n="detail.steps">Step by step</h2>
+            <ol class="steps">
+            <li data-i18n="svc.alignment.step1">Consultation and full assessment of your teeth and bite.</li>
+            <li data-i18n="svc.alignment.step2">We agree a treatment plan and you choose your appliance.</li>
+            <li data-i18n="svc.alignment.step3">The braces are fitted, or your first set of aligners is handed over.</li>
+            <li data-i18n="svc.alignment.step4">You come in for short adjustment visits as your teeth move.</li>
+            <li data-i18n="svc.alignment.step5">The appliance is removed and you are fitted with a retainer.</li>
+            </ol>
+
+            <h2 data-i18n="detail.aftercare">Aftercare</h2>
+            <p data-i18n="svc.alignment.aftercare">Your teeth will feel tender for two or three days after each adjustment — soft food and normal painkillers are enough. Brushing takes longer with braces, so we show you how to clean around the brackets and wires. Once treatment finishes, wearing your retainer as instructed is what keeps the result; teeth drift back if it is left in the drawer.</p>
+
+         </div>
+
+         <aside class="detail-aside">
+            <h3 data-i18n="detail.facts">Quick facts</h3>
+            <ul class="facts">
+            <li><strong data-i18n="svc.alignment.fact1.label">Treatment time</strong> <span data-i18n="svc.alignment.fact1.value">6 to 24 months</span></li>
+            <li><strong data-i18n="svc.alignment.fact2.label">Visits</strong> <span data-i18n="svc.alignment.fact2.value">Every 4 to 6 weeks</span></li>
+            <li><strong data-i18n="svc.alignment.fact3.label">Anaesthesia</strong> <span data-i18n="svc.alignment.fact3.value">Not needed</span></li>
+            <li><strong data-i18n="svc.alignment.fact4.label">Suitable for</strong> <span data-i18n="svc.alignment.fact4.value">Teenagers and adults</span></li>
+            </ul>
+            <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.bookTreatment">Book this treatment</a>
+         </aside>
+
+      </div>
+
+   </section>
+
+   <section class="services related">
+
+      <h1 class="heading" data-i18n="detail.related">related services</h1>
+
+      <div class="box-container container">
+
+         <a href="cosmetic-dentistry.html" class="box">
+            <span class="box-icon"><i class="fas fa-wand-magic-sparkles"></i></span>
+            <h3 data-i18n="svc.cosmetic-dentistry.title">Cosmetic Dentistry</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="oral-hygiene.html" class="box">
+            <span class="box-icon"><i class="fas fa-soap"></i></span>
+            <h3 data-i18n="svc.oral-hygiene.title">Oral Hygiene Experts</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="pediatric-dentistry.html" class="box">
+            <span class="box-icon"><i class="fas fa-child-reaching"></i></span>
+            <h3 data-i18n="svc.pediatric-dentistry.title">Pediatric Dentistry</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+      </div>
+
+   </section>
+
+</main>
+
+<footer class="site-footer">
+   <p class="credit">&copy; <span data-year>2026</span> <span class="brand">Bright Smile Clinic</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+</footer>
+
+</body>
+
+</html>

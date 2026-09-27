@@ -1,0 +1,1395 @@
+/* ==========================================================================
+   Bright Smile Clinic — global stylesheet
+   Note: html font-size is 62.5%, so 1rem = 10px.
+   ========================================================================== */
+
+:root{
+   --blue:#009EFF;
+   --blue-dark:#006DAF;
+   --heading:#00517F;
+   --white:#fff;
+   --light-color:#666;
+   --light-bg:#F4F7FA;
+   --border:.1rem solid rgba(0,0,0,.1);
+   --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.08);
+   --radius:.8rem;
+   --header-height:8rem;
+}
+
+/* ---------- reset ---------- */
+
+*,
+*::before,
+*::after{
+   margin:0; padding:0;
+   box-sizing:border-box;
+}
+
+html{
+   font-size:62.5%;
+   overflow-x:hidden;
+   scroll-behavior:smooth;
+   /* keeps anchor targets clear of the sticky header */
+   scroll-padding-top:calc(var(--header-height) + 2rem);
+   /* lives on html, not body, so the fixed bg-tooth (a negative z-index
+      sibling of body's other children) is never painted over by an
+      opaque body background */
+   background-color:var(--white);
+}
+
+body{
+   font-family:'Poppins', sans-serif;
+   font-size:1.6rem;
+   line-height:1.6;
+   color:var(--light-color);
+}
+
+a{
+   color:inherit;
+   text-decoration:none;
+}
+
+img{
+   max-width:100%;
+   display:block;
+}
+
+button,
+input,
+select,
+textarea{
+   font:inherit;
+   color:inherit;
+   border:none;
+   outline:none;
+}
+
+/* visible keyboard focus — never remove it without a replacement */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+   outline:.3rem solid var(--blue);
+   outline-offset:.2rem;
+}
+
+*::-webkit-scrollbar{
+   height:.5rem;
+   width:1rem;
+}
+
+*::-webkit-scrollbar-track{
+   background-color:var(--light-bg);
+}
+
+*::-webkit-scrollbar-thumb{
+   background-color:var(--blue);
+   border-radius:1rem;
+}
+
+/* ---------- layout helpers ---------- */
+
+.container{
+   max-width:120rem;
+   margin:0 auto;
+   padding:0 2rem;
+   width:100%;
+}
+
+section{
+   padding:7rem 2rem;
+}
+
+.heading{
+   text-align:center;
+   font-size:4rem;
+   color:var(--heading);
+   text-transform:uppercase;
+   font-weight:700;
+   margin-bottom:3rem;
+}
+
+.heading + .heading-sub{
+   text-align:center;
+   font-size:1.6rem;
+   color:var(--light-color);
+   max-width:60rem;
+   margin:-2rem auto 4rem;
+}
+
+/* ---------- buttons ---------- */
+
+.link-btn{
+   display:inline-block;
+   padding:1.1rem 2.2rem;
+   border-radius:var(--radius);
+   background-color:var(--blue);
+   cursor:pointer;
+   font-size:1.6rem;
+   font-weight:500;
+   line-height:1;
+   white-space:nowrap;
+   color:var(--white);
+   transition:background-color .2s ease, transform .2s ease;
+}
+
+.link-btn:hover,
+.link-btn:focus-visible{
+   background-color:var(--blue-dark);
+   color:var(--white);
+   transform:translateY(-.2rem);
+}
+
+/* ==========================================================================
+   background tooth — a stack of Font Awesome tooth glyphs at different
+   depths (built by js/bg-tooth.js), fixed behind the page and spun by
+   scroll position.
+   ========================================================================== */
+
+.bg-tooth{
+   position:fixed;
+   inset:0;
+   z-index:-1;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   overflow:hidden;
+   pointer-events:none;
+   /* gives the rotateX/rotateY below real depth instead of a flat spin */
+   perspective:180rem;
+   /* faint enough to read as a watermark behind card grids and headings,
+      not a shape competing with them */
+   opacity:.1;
+}
+
+.bg-tooth-3d{
+   display:grid;
+   place-items:center;
+   transform-style:preserve-3d;
+   transform:rotateX(18deg) rotateY(0deg);
+   /* the scroll handler only ever touches this element's transform, so this
+      is the one layer worth pre-promoting to the GPU */
+   will-change:transform;
+}
+
+.bg-tooth-3d i{
+   grid-area:1/1;
+   font-size:min(60vw, 60vh);
+}
+
+/* front and back caps hide themselves when facing away, like a coin,
+   instead of rendering a mirrored glyph on their far side */
+.bg-tooth-face{
+   backface-visibility:hidden;
+   -webkit-backface-visibility:hidden;
+}
+
+.bg-tooth-face--front{
+   background:linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+   -webkit-background-clip:text;
+   background-clip:text;
+   color:transparent;
+   -webkit-text-fill-color:transparent;
+   filter:drop-shadow(0 3rem 4rem rgba(0,81,127,.35));
+}
+
+.bg-tooth-face--back{
+   color:var(--blue-dark);
+}
+
+/* ==========================================================================
+   header
+   ========================================================================== */
+
+.header{
+   position:sticky;
+   top:0;
+   z-index:1000;
+   background-color:var(--white);
+   border-bottom:var(--border);
+   box-shadow:0 .2rem 1rem rgba(0,0,0,.04);
+}
+
+/* the header spans the full window so the logo can sit hard left
+   and the buttons hard right */
+.header .container{
+   max-width:none;
+   padding:0 3rem;
+}
+
+.header-inner{
+   position:relative;
+   display:flex;
+   align-items:center;
+   gap:3rem;
+   min-height:var(--header-height);
+}
+
+.header .logo{
+   display:flex;
+   align-items:center;
+   gap:1rem;
+   color:var(--heading);
+   white-space:nowrap;
+}
+
+.header .logo-mark{
+   width:4.4rem;
+   height:4.4rem;
+   flex-shrink:0;
+}
+
+/* name on top, a small spaced-out "Clinic" underneath */
+.header .logo-text{
+   display:flex;
+   flex-direction:column;
+   line-height:1.1;
+}
+
+.header .logo-name{
+   font-size:2.2rem;
+   font-weight:700;
+}
+
+.header .logo-name span{
+   color:var(--blue);
+}
+
+.header .logo-sub{
+   font-size:1.1rem;
+   font-weight:500;
+   letter-spacing:.4em;
+   text-transform:uppercase;
+   color:var(--light-color);
+}
+
+/* sits directly beside the logo, in normal document flow */
+.header .nav{
+   display:flex;
+   align-items:center;
+   gap:2.5rem;
+}
+
+.header .nav a{
+   position:relative;
+   font-size:1.6rem;
+   font-weight:500;
+   color:var(--heading);
+   padding:.5rem 0;
+   transition:color .2s ease;
+}
+
+.header .nav a:hover{
+   color:var(--blue);
+}
+
+/* current page / section — an underline, not a grey box */
+.header .nav a.current{
+   color:var(--blue);
+}
+
+.header .nav a.current::after{
+   content:'';
+   position:absolute;
+   left:0; right:0; bottom:-.2rem;
+   height:.3rem;
+   border-radius:.3rem;
+   background-color:var(--blue);
+}
+
+/* the three blue buttons, grouped side by side and pushed to the far right */
+.header-actions{
+   display:flex;
+   align-items:center;
+   gap:1rem;
+   margin-left:auto;
+}
+
+/* language switcher */
+.lang-switch{
+   margin-left:auto;
+}
+
+.lang-switch + .header-actions{
+   margin-left:1rem;
+}
+
+.lang-switch select{
+   padding:.6rem 2.4rem .6rem 1.2rem;
+   border:var(--border);
+   border-radius:var(--radius);
+   background-color:transparent;
+   cursor:pointer;
+   font-size:1.4rem;
+   font-weight:500;
+   font-family:inherit;
+   color:var(--light-color);
+   appearance:none;
+   -webkit-appearance:none;
+   background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23777' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+   background-repeat:no-repeat;
+   background-position:right .6rem center;
+   background-size:1.4rem;
+}
+
+html[dir="rtl"] .lang-switch select{
+   padding:.6rem 1.2rem .6rem 2.4rem;
+   background-position:left .6rem center;
+}
+
+.lang-switch select:hover,
+.lang-switch select:focus{
+   color:var(--blue);
+   border-color:var(--blue);
+}
+
+/* hamburger — pure CSS, no icon font needed */
+.menu-btn{
+   display:none;
+   margin-left:auto;
+   width:4.5rem;
+   height:4.5rem;
+   padding:1rem;
+   background:none;
+   cursor:pointer;
+   flex-direction:column;
+   justify-content:space-between;
+}
+
+.menu-btn span{
+   display:block;
+   height:.3rem;
+   width:100%;
+   border-radius:.3rem;
+   background-color:var(--heading);
+   transition:transform .2s linear, opacity .2s linear;
+}
+
+.menu-btn[aria-expanded="true"] span:nth-child(1){
+   transform:translateY(1.2rem) rotate(45deg);
+}
+
+.menu-btn[aria-expanded="true"] span:nth-child(2){
+   opacity:0;
+}
+
+.menu-btn[aria-expanded="true"] span:nth-child(3){
+   transform:translateY(-1.2rem) rotate(-45deg);
+}
+
+/* ==========================================================================
+   home
+   ========================================================================== */
+
+.home{
+   position:relative;
+   background:url(../images/home-bg.jpg) no-repeat;
+   background-size:cover;
+   background-position:center;
+   min-height:calc(100vh - var(--header-height));
+   display:flex;
+   align-items:center;
+   padding-top:5rem;
+   padding-bottom:5rem;
+}
+
+/* a soft wash instead of a panel: the text still reads, but there is no
+   visible box — it fades into the photo */
+.home::before{
+   content:'';
+   position:absolute;
+   inset:0;
+   background:linear-gradient(to right, rgba(255,255,255,.92) 0%, rgba(255,255,255,.75) 40%, rgba(255,255,255,0) 75%);
+   pointer-events:none;
+}
+
+html[dir="rtl"] .home::before{
+   background:linear-gradient(to left, rgba(255,255,255,.92) 0%, rgba(255,255,255,.75) 40%, rgba(255,255,255,0) 75%);
+}
+
+.home .container{
+   position:relative;
+   z-index:1;
+}
+
+.home .content{
+   max-width:55rem;
+   padding:2rem 0;
+}
+
+.home .content h3{
+   font-size:5.5rem;
+   line-height:1.2;
+   text-transform:uppercase;
+   color:var(--heading);
+}
+
+.home .content p{
+   line-height:2;
+   font-size:1.6rem;
+   color:#3a3a3a;
+   padding:1.5rem 0 2.5rem;
+}
+
+/* Arabic glyphs are taller than Latin ones, so the tight Latin line-heights
+   clip them — headings and body copy both need more room */
+html[dir="rtl"] .home .content h3{
+   line-height:1.6;
+}
+
+html[dir="rtl"] .home .content p{
+   line-height:2.2;
+}
+
+html[dir="rtl"] .heading{
+   line-height:1.5;
+}
+
+/* ==========================================================================
+   about
+   ========================================================================== */
+
+.about .row{
+   display:flex;
+   flex-wrap:wrap;
+   align-items:center;
+   justify-content:space-between;
+   gap:5rem;
+}
+
+.about .col{
+   flex:1 1 40rem;
+}
+
+.about .image img{
+   width:100%;
+   border-radius:var(--radius);
+   box-shadow:var(--box-shadow);
+}
+
+.about .content span{
+   font-size:1.8rem;
+   font-weight:500;
+   text-transform:uppercase;
+   letter-spacing:.1rem;
+   color:var(--blue);
+}
+
+.about .content h3{
+   font-size:3rem;
+   color:var(--heading);
+   margin-top:1rem;
+}
+
+.about .content p{
+   padding:1rem 0;
+   font-size:1.5rem;
+   color:var(--light-color);
+   line-height:2;
+}
+
+/* ==========================================================================
+   services
+   ========================================================================== */
+
+.services{
+   /* slightly translucent (not the solid --light-bg) so the fixed
+      background tooth still reads through here, same as every other
+      section, instead of vanishing behind an opaque panel */
+   background-color:rgba(244,247,250,.97);
+}
+
+.services .box-container{
+   display:grid;
+   grid-template-columns:repeat(auto-fit, minmax(30rem, 1fr));
+   gap:2rem;
+}
+
+.services .box-container .box{
+   text-align:center;
+   padding:3rem 2rem;
+   background-color:var(--white);
+   box-shadow:var(--box-shadow);
+   border-radius:var(--radius);
+   transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.services .box-container .box:hover{
+   transform:translateY(-.5rem);
+   box-shadow:0 1rem 2rem rgba(0,0,0,.12);
+}
+
+/* vector card icon — stays crisp at any size, unlike the bitmap assets */
+.box-icon{
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   height:7rem;
+   width:7rem;
+   margin:0 auto 1.5rem;
+   border-radius:50%;
+   background-color:rgba(0,158,255,.1);
+   color:var(--blue);
+   font-size:3rem;
+   transition:background-color .3s ease, color .3s ease;
+}
+
+.box-container a.box:hover .box-icon{
+   background-color:var(--blue);
+   color:var(--white);
+}
+
+.services .box-container .box img{
+   margin:1rem auto;
+   height:5rem;
+}
+
+.services .box-container .box h3{
+   font-size:2rem;
+   padding:1rem 0 .5rem;
+   color:var(--heading);
+}
+
+.services .box-container .box p{
+   font-size:1.5rem;
+   color:var(--light-color);
+   line-height:1.8;
+}
+
+/* ==========================================================================
+   work process — the patient journey, step by step
+   ========================================================================== */
+
+.journey-gallery{
+   display:grid;
+   grid-template-columns:repeat(3, 1fr);
+   gap:2rem;
+   margin-bottom:4rem;
+}
+
+.journey-gallery img{
+   width:100%;
+   border-radius:var(--radius);
+   background-color:var(--light-bg);
+}
+
+.journey .step-container{
+   display:grid;
+   grid-template-columns:repeat(auto-fit, minmax(21rem, 1fr));
+   gap:2rem;
+}
+
+.journey .step{
+   position:relative;
+   text-align:center;
+   padding:3.5rem 2rem 3rem;
+   background-color:var(--blue);
+   border-radius:var(--radius);
+   box-shadow:var(--box-shadow);
+}
+
+.journey .step .step-number{
+   position:absolute;
+   top:-1.8rem;
+   left:50%;
+   transform:translateX(-50%);
+   height:3.6rem;
+   width:3.6rem;
+   border-radius:50%;
+   /* dark blue reads against both the white page and the blue card */
+   background-color:var(--blue-dark);
+   color:var(--white);
+   border:.3rem solid var(--white);
+   font-size:1.5rem;
+   font-weight:600;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   box-shadow:var(--box-shadow);
+}
+
+.journey .step i{
+   font-size:3.4rem;
+   color:var(--white);
+   margin-bottom:1.5rem;
+   display:block;
+}
+
+.journey .step h3{
+   font-size:1.9rem;
+   color:var(--white);
+   margin-bottom:1rem;
+}
+
+.journey .step p{
+   font-size:1.5rem;
+   color:rgba(255,255,255,.9);
+   line-height:1.8;
+}
+
+/* ==========================================================================
+   clickable cards (services / work process)
+   ========================================================================== */
+
+.box-container a.box{
+   display:block;
+   color:inherit;
+}
+
+.box-link{
+   display:inline-block;
+   margin-top:1rem;
+   font-size:1.4rem;
+   font-weight:500;
+   color:var(--blue);
+}
+
+.process .box-container .box-link{
+   color:var(--white);
+}
+
+.box-container a.box:hover .box-link{
+   text-decoration:underline;
+}
+
+/* ==========================================================================
+   detail pages (a service or treatment explained in full)
+   ========================================================================== */
+
+.page-hero{
+   background-color:var(--light-bg);
+   padding:5rem 2rem;
+   text-align:center;
+}
+
+.breadcrumb{
+   font-size:1.4rem;
+   color:var(--light-color);
+   margin-bottom:1.5rem;
+}
+
+.breadcrumb a{
+   color:var(--blue);
+}
+
+.breadcrumb a:hover{
+   text-decoration:underline;
+}
+
+.breadcrumb .sep{
+   margin:0 .8rem;
+   color:#bbb;
+}
+
+.page-hero h1{
+   font-size:4rem;
+   font-weight:700;
+   text-transform:uppercase;
+   color:var(--heading);
+}
+
+.page-hero p{
+   max-width:70rem;
+   margin:1.5rem auto 0;
+   font-size:1.6rem;
+   line-height:1.9;
+}
+
+.detail-grid{
+   display:grid;
+   grid-template-columns:1fr 34rem;
+   gap:4rem;
+   align-items:start;
+}
+
+.detail-figure{
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   background-color:var(--light-bg);
+   border-radius:var(--radius);
+   padding:3rem;
+   margin-bottom:3rem;
+}
+
+.detail-figure i{
+   font-size:8rem;
+   color:var(--blue);
+}
+
+.detail-content h2{
+   font-size:2.4rem;
+   color:var(--heading);
+   margin:3rem 0 1.5rem;
+}
+
+.detail-content p{
+   font-size:1.6rem;
+   line-height:1.9;
+   margin-bottom:1rem;
+}
+
+.check-list,
+.steps{
+   list-style:none;
+}
+
+.check-list li{
+   position:relative;
+   padding-left:3rem;
+   margin-bottom:1rem;
+   font-size:1.6rem;
+   line-height:1.8;
+}
+
+.check-list li::before{
+   content:'\f00c';
+   font-family:'Font Awesome 6 Free';
+   font-weight:900;
+   position:absolute;
+   left:0;
+   top:.1rem;
+   color:var(--blue);
+}
+
+.steps{
+   counter-reset:step;
+}
+
+.steps li{
+   counter-increment:step;
+   position:relative;
+   padding-left:4.5rem;
+   margin-bottom:1.5rem;
+   font-size:1.6rem;
+   line-height:1.8;
+}
+
+.steps li::before{
+   content:counter(step);
+   position:absolute;
+   left:0;
+   top:0;
+   width:3rem;
+   height:3rem;
+   border-radius:50%;
+   background-color:var(--blue);
+   color:var(--white);
+   font-size:1.5rem;
+   font-weight:600;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+}
+
+.detail-aside{
+   position:sticky;
+   top:calc(var(--header-height) + 2rem);
+   background-color:var(--light-bg);
+   border-radius:var(--radius);
+   padding:3rem 2.5rem;
+}
+
+.detail-aside h3{
+   font-size:2rem;
+   color:var(--heading);
+   margin-bottom:1.5rem;
+}
+
+.facts{
+   list-style:none;
+}
+
+.facts li{
+   display:flex;
+   justify-content:space-between;
+   gap:1.5rem;
+   font-size:1.5rem;
+   padding:1.2rem 0;
+   border-bottom:var(--border);
+}
+
+.facts li:last-child{
+   border-bottom:none;
+}
+
+.facts strong{
+   color:var(--heading);
+   font-weight:500;
+   white-space:nowrap;
+}
+
+.facts span{
+   text-align:right;
+}
+
+.detail-aside .link-btn{
+   display:block;
+   text-align:center;
+   margin-top:2rem;
+}
+
+.related{
+   background-color:var(--light-bg);
+}
+
+@media (max-width:991px){
+
+   .detail-grid{
+      grid-template-columns:1fr;
+   }
+
+   .detail-aside{
+      position:static;
+   }
+
+}
+
+/* ==========================================================================
+   forms (login / sign up / appointment)
+   ========================================================================== */
+
+.form-section{
+   background-color:var(--light-bg);
+   min-height:calc(100vh - var(--header-height));
+}
+
+.form-section form{
+   border-radius:var(--radius);
+   background-color:var(--white);
+   box-shadow:var(--box-shadow);
+   padding:3rem;
+   margin:0 auto;
+   max-width:55rem;
+}
+
+.form-section form label{
+   display:block;
+   font-size:1.5rem;
+   font-weight:500;
+   color:var(--heading);
+   margin-top:1.5rem;
+}
+
+.form-section form .box{
+   width:100%;
+   margin-top:.8rem;
+   margin-bottom:.5rem;
+   border-radius:var(--radius);
+   background-color:var(--light-bg);
+   border:.1rem solid transparent;
+   padding:1.2rem 1.4rem;
+   font-size:1.6rem;
+   color:var(--heading);
+   transition:border-color .2s ease, background-color .2s ease;
+}
+
+.form-section form .box:focus{
+   border-color:var(--blue);
+   background-color:var(--white);
+}
+
+.form-section form .box::placeholder{
+   color:#aaa;
+}
+
+.form-actions{
+   text-align:center;
+   margin-top:2.5rem;
+}
+
+.form-actions .link-btn{
+   width:100%;
+}
+
+.form-actions p{
+   font-size:1.5rem;
+   margin-top:1.5rem;
+}
+
+.form-actions a,
+.forgot-password{
+   color:var(--blue);
+   font-weight:500;
+}
+
+.forgot-password{
+   display:inline-block;
+   font-size:1.4rem;
+   margin-top:1.5rem;
+}
+
+.form-actions a:hover,
+.forgot-password:hover{
+   text-decoration:underline;
+}
+
+/* inline success / error feedback, injected by dental.js */
+.form-message{
+   margin-bottom:2rem;
+   border-radius:var(--radius);
+   padding:1.2rem 1.4rem;
+   font-size:1.5rem;
+   text-align:center;
+   color:var(--white);
+}
+
+.form-message--success{
+   background-color:var(--blue);
+}
+
+.form-message--error{
+   background-color:#D64545;
+}
+
+/* ==========================================================================
+   contact / footer
+   ========================================================================== */
+
+.contact{
+   /* translucent, same reasoning as .services above */
+   background-color:rgba(244,247,250,.97);
+}
+
+.contact .box-container{
+   display:grid;
+   grid-template-columns:repeat(auto-fit, minmax(25rem, 1fr));
+   gap:3rem;
+}
+
+.contact .box-container .box{
+   text-align:center;
+}
+
+.contact .box-container .box i{
+   height:5rem;
+   width:5rem;
+   border-radius:50%;
+   line-height:5rem;
+   font-size:2rem;
+   background-color:var(--blue);
+   color:var(--white);
+}
+
+.contact .box-container .box h3{
+   font-size:1.8rem;
+   text-transform:uppercase;
+   letter-spacing:.05rem;
+   margin:2rem 0 1rem;
+   color:var(--heading);
+}
+
+.contact .box-container .box p,
+.contact .box-container .box a{
+   font-size:1.5rem;
+   color:var(--light-color);
+   display:block;
+}
+
+.contact .box-container .box a:hover{
+   color:var(--blue);
+   text-decoration:underline;
+}
+
+.credit{
+   text-align:center;
+   border-top:var(--border);
+   padding-top:2rem;
+   margin-top:4rem;
+   font-size:1.5rem;
+   color:var(--light-color);
+}
+
+.credit .brand{
+   color:var(--blue);
+   font-weight:500;
+}
+
+/* slim footer for the sub-pages */
+.site-footer{
+   /* translucent, same reasoning as .services above */
+   background-color:rgba(255,255,255,.97);
+   border-top:var(--border);
+   padding:2.5rem 2rem;
+}
+
+.site-footer .credit{
+   border-top:none;
+   padding-top:0;
+   margin-top:0;
+}
+
+/* ==========================================================================
+   payment page
+   ========================================================================== */
+
+.pay-card{
+   max-width:60rem;
+   margin:0 auto;
+   padding:3rem;
+   background-color:var(--white);
+   border-radius:var(--radius);
+   box-shadow:var(--box-shadow);
+}
+
+.pay-status{
+   display:flex;
+   align-items:center;
+   gap:1rem;
+   justify-content:center;
+   padding:2rem;
+   font-size:1.6rem;
+   color:var(--light-color);
+}
+
+.pay-status i{
+   color:var(--blue);
+   font-size:2rem;
+}
+
+.pay-status--error{
+   color:#D64545;
+}
+
+.pay-status--error i{
+   color:#D64545;
+}
+
+.pay-summary > div{
+   display:flex;
+   justify-content:space-between;
+   gap:2rem;
+   padding:1.4rem 0;
+   border-bottom:var(--border);
+   font-size:1.6rem;
+}
+
+.pay-summary dt{
+   color:var(--light-color);
+}
+
+.pay-summary dd{
+   color:var(--heading);
+   font-weight:500;
+   text-align:right;
+}
+
+.pay-summary .pay-total{
+   border-bottom:none;
+   margin-top:.5rem;
+   padding-top:2rem;
+   border-top:.2rem solid var(--blue);
+   font-size:2rem;
+}
+
+.pay-summary .pay-total dd{
+   color:var(--blue);
+   font-weight:600;
+}
+
+#payButton{
+   width:100%;
+   margin-top:2.5rem;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   gap:1rem;
+   font-size:1.8rem;
+   padding:1.4rem;
+}
+
+/* Paymob's own page renders inside here — we never draw card fields */
+.pay-frame{
+   margin-top:2.5rem;
+}
+
+.pay-frame iframe{
+   width:100%;
+   height:60rem;
+   border:var(--border);
+   border-radius:var(--radius);
+}
+
+.pay-note{
+   display:flex;
+   align-items:flex-start;
+   gap:1rem;
+   margin-top:2.5rem;
+   font-size:1.4rem;
+   line-height:1.7;
+   color:var(--light-color);
+}
+
+.pay-note i{
+   color:var(--blue);
+   margin-top:.3rem;
+}
+
+.logout-btn{
+   background-color:var(--blue-dark);
+}
+
+html[dir="rtl"] .pay-summary dd{
+   text-align:left;
+}
+
+/* ==========================================================================
+   cookie consent banner, injected by analytics.js
+
+   Nothing is tracked until the visitor presses Accept, so this bar has to be
+   readable and its two choices equally reachable — a Decline that is harder
+   to find than Accept is not consent freely given.
+   ========================================================================== */
+
+.consent-banner{
+   position:fixed;
+   left:1.5rem;
+   right:1.5rem;
+   bottom:1.5rem;
+   z-index:1100;
+   margin-inline:auto;
+   max-width:78rem;
+   display:flex;
+   align-items:center;
+   gap:2rem;
+   flex-wrap:wrap;
+   background-color:var(--white);
+   border:var(--border);
+   border-radius:var(--radius);
+   box-shadow:0 1rem 3rem rgba(0,0,0,.18);
+   padding:1.8rem 2rem;
+}
+
+.consent-banner p{
+   flex:1 1 28rem;
+   margin:0;
+   font-size:1.4rem;
+   line-height:1.7;
+   color:var(--light-color);
+}
+
+.consent-actions{
+   display:flex;
+   align-items:center;
+   gap:1rem;
+   flex-shrink:0;
+}
+
+.consent-decline{
+   background:none;
+   border:var(--border);
+   border-radius:var(--radius);
+   padding:1rem 2rem;
+   font-family:inherit;
+   font-size:1.5rem;
+   color:var(--light-color);
+   cursor:pointer;
+   transition:color .2s, border-color .2s;
+}
+
+.consent-decline:hover,
+.consent-decline:focus-visible{
+   color:var(--heading);
+   border-color:var(--blue);
+}
+
+@media (max-width:450px){
+
+   .consent-actions{
+      width:100%;
+   }
+
+   .consent-actions > *{
+      flex:1;
+      text-align:center;
+   }
+}
+
+/* ==========================================================================
+   right to left (Arabic)
+   Latin fonts have no Arabic glyphs, so the script needs its own family.
+   ========================================================================== */
+
+html[dir="rtl"] body{
+   font-family:'Cairo', 'Poppins', sans-serif;
+}
+
+html[dir="rtl"] .check-list li{
+   padding-left:0;
+   padding-right:3rem;
+}
+
+html[dir="rtl"] .check-list li::before{
+   left:auto;
+   right:0;
+}
+
+html[dir="rtl"] .steps li{
+   padding-left:0;
+   padding-right:4.5rem;
+}
+
+html[dir="rtl"] .steps li::before{
+   left:auto;
+   right:0;
+}
+
+html[dir="rtl"] .facts span{
+   text-align:left;
+}
+
+html[dir="rtl"] .lang-switch + .header-actions{
+   margin-left:0;
+   margin-right:1rem;
+}
+
+html[dir="rtl"] .menu-btn{
+   margin-left:0;
+   margin-right:auto;
+}
+
+/* phone numbers and emails stay left to right even inside Arabic text */
+html[dir="rtl"] a[href^="tel:"],
+html[dir="rtl"] a[href^="mailto:"]{
+   direction:ltr;
+   display:inline-block;
+   unicode-bidi:embed;
+}
+
+/* ==========================================================================
+   media queries
+   ========================================================================== */
+
+@media (max-width:1200px){
+
+   .header-inner{
+      gap:2rem;
+   }
+
+   .header .nav{
+      gap:1.8rem;
+   }
+
+   .link-btn{
+      padding:1rem 1.6rem;
+      font-size:1.5rem;
+   }
+
+}
+
+@media (max-width:991px){
+
+   html{
+      font-size:55%;
+   }
+
+   section{
+      padding:5rem 2rem;
+   }
+
+   .home .content h3{
+      font-size:4.5rem;
+   }
+
+}
+
+@media (max-width:768px){
+
+   section{
+      padding:4rem 1.5rem;
+   }
+
+   .menu-btn{
+      display:flex;
+      margin-left:1rem;
+   }
+
+   /* language switcher stays on the top row, beside the hamburger */
+   .lang-switch{
+      margin-left:auto;
+   }
+
+   .header-inner{
+      flex-wrap:wrap;
+      gap:1.5rem;
+   }
+
+   /* nav collapses into a dropdown panel under the header */
+   .header .nav{
+      position:absolute;
+      top:100%; left:0; right:0;
+      transform:none;
+      background-color:var(--white);
+      border-top:var(--border);
+      border-bottom:var(--border);
+      box-shadow:var(--box-shadow);
+      padding:1rem 0;
+      flex-direction:column;
+      gap:0;
+      clip-path:polygon(0 0, 100% 0, 100% 0, 0 0);
+      transition:clip-path .2s linear;
+   }
+
+   .header .nav.open{
+      clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+
+   .header .nav a{
+      margin:1rem 0;
+      font-size:2rem;
+      text-align:center;
+   }
+
+   .header .nav a.current::after{
+      display:none;
+   }
+
+   /* buttons stay side by side, wrapping onto their own row */
+   .header-actions{
+      order:3;
+      width:100%;
+      flex-wrap:wrap;
+      justify-content:flex-start;
+      padding-bottom:1.5rem;
+   }
+
+   .home{
+      background-position:left;
+      min-height:auto;
+   }
+
+   .home .content{
+      max-width:none;
+   }
+
+   .about .row{
+      gap:3rem;
+   }
+
+   .journey-gallery{
+      grid-template-columns:repeat(auto-fit, minmax(18rem, 1fr));
+   }
+
+}
+
+@media (max-width:450px){
+
+   html{
+      font-size:50%;
+   }
+
+   .home .content h3{
+      font-size:4rem;
+   }
+
+   .heading{
+      font-size:3rem;
+   }
+
+   .header-actions .link-btn{
+      flex:1 1 100%;
+      text-align:center;
+   }
+
+}

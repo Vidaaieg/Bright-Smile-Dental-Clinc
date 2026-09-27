@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Cavity Inspection | Bright Smile Clinic</title>
+   <meta name="description" content="A thorough check-up that finds decay while it is still small and cheap to fix.">
+
+   <!-- fonts and icons (Cairo carries the Arabic glyphs) -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+   <link rel="alternate icon" href="../images/favicon.png">
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="../lang/translations.js" defer></script>
+   <script src="../lang/services.js" defer></script>
+   <script src="../js/supabase-client.js" defer></script>
+   <script src="../js/dental.js" defer></script>
+   <script src="../js/auth.js" defer></script>
+   <script src="../js/analytics.js" defer></script>
+   <script src="../js/bg-tooth.js" defer></script>
+</head>
+
+<body>
+
+<div class="bg-tooth" aria-hidden="true">
+   <div class="bg-tooth-3d" id="bg-tooth-3d">
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--front"></i>
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--back"></i>
+   </div>
+</div>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+   <div class="container header-inner">
+
+      <a href="../index.html#home" class="logo" aria-label="Bright Smile Clinic — home">
+         <img src="../images/logo.svg" alt="" class="logo-mark" width="44" height="44">
+         <span class="logo-text"><span class="logo-name">Bright <span>Smile</span></span><span class="logo-sub">Clinic</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+         <a href="../index.html#home" data-i18n="nav.home">Home</a>
+         <a href="../index.html#about" data-i18n="nav.about">About</a>
+      <a href="../index.html#services" class="current" aria-current="true" data-i18n="nav.services">Services</a>
+         <a href="../pages/contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang-switch">
+         <select id="lang-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="ar">ع</option>
+            <option value="de">DE</option>
+            <option value="ru">RU</option>
+         </select>
+      </div>
+
+      <div class="header-actions">
+         <a href="../pages/login.html" class="link-btn" data-i18n="btn.login">Login</a>
+         <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.appointment">Make Appointment</a>
+      </div>
+
+      <button type="button" id="menu-btn" class="menu-btn" data-i18n-aria="nav.menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
+         <span></span>
+         <span></span>
+         <span></span>
+      </button>
+
+   </div>
+
+</header>
+
+<!-- header section ends -->
+
+<main>
+
+   <section class="page-hero">
+      <div class="container">
+         <p class="breadcrumb">
+            <a href="../index.html#home" data-i18n="nav.home">Home</a><span class="sep">/</span>
+            <a href="../index.html#services" data-i18n="nav.services">Services</a><span class="sep">/</span>
+            <span data-i18n="svc.cavity-inspection.title">Cavity Inspection</span>
+         </p>
+         <h1 data-i18n="svc.cavity-inspection.title">Cavity Inspection</h1>
+         <p data-i18n="svc.cavity-inspection.tagline">A thorough check-up that finds decay while it is still small and cheap to fix.</p>
+      </div>
+   </section>
+
+   <section class="detail">
+
+      <div class="container detail-grid">
+
+         <div class="detail-content">
+
+            <div class="detail-figure">
+               <i class="fas fa-magnifying-glass"></i>
+            </div>
+
+            <p data-i18n="svc.cavity-inspection.intro">Decay does not hurt until it is well established. By the time a tooth aches, a small filling has often become a root canal. A routine inspection every six months catches cavities at the stage where treatment takes twenty minutes.</p>
+
+            <h2 data-i18n="detail.involves">What the treatment involves</h2>
+            <p data-i18n="svc.cavity-inspection.involves">We examine every surface of every tooth, including the contact points between teeth where decay usually starts and where you cannot see it yourself. X-rays show what is happening under existing fillings and between the back teeth. We also check your existing fillings and crowns for leaking edges, and screen the soft tissues of your mouth.</p>
+
+            <h2 data-i18n="detail.included">What is included</h2>
+            <ul class="check-list">
+            <li data-i18n="svc.cavity-inspection.inc1">Visual examination of every tooth surface</li>
+            <li data-i18n="svc.cavity-inspection.inc2">Digital X-rays where they are needed</li>
+            <li data-i18n="svc.cavity-inspection.inc3">A check of existing fillings and crowns</li>
+            <li data-i18n="svc.cavity-inspection.inc4">Oral cancer screening of the soft tissues</li>
+            <li data-i18n="svc.cavity-inspection.inc5">Same-visit fillings for small cavities</li>
+            </ul>
+
+            <h2 data-i18n="detail.steps">Step by step</h2>
+            <ol class="steps">
+            <li data-i18n="svc.cavity-inspection.step1">We ask about any sensitivity or discomfort you have noticed.</li>
+            <li data-i18n="svc.cavity-inspection.step2">Each tooth surface is examined under good light.</li>
+            <li data-i18n="svc.cavity-inspection.step3">X-rays are taken where decay could be hidden.</li>
+            <li data-i18n="svc.cavity-inspection.step4">We show you what we found and explain the options.</li>
+            <li data-i18n="svc.cavity-inspection.step5">Small cavities can usually be filled in the same visit.</li>
+            </ol>
+
+            <h2 data-i18n="detail.aftercare">Aftercare</h2>
+            <p data-i18n="svc.cavity-inspection.aftercare">If you had a filling, the numbness takes two to three hours to wear off — avoid chewing on that side until it does, so you do not bite your cheek. Mild cold sensitivity for a few days is normal. If the filling feels high when you bite together, come back and we will adjust it; it takes a minute and it saves you weeks of discomfort.</p>
+
+         </div>
+
+         <aside class="detail-aside">
+            <h3 data-i18n="detail.facts">Quick facts</h3>
+            <ul class="facts">
+            <li><strong data-i18n="svc.cavity-inspection.fact1.label">Appointment length</strong> <span data-i18n="svc.cavity-inspection.fact1.value">20 to 40 minutes</span></li>
+            <li><strong data-i18n="svc.cavity-inspection.fact2.label">How often</strong> <span data-i18n="svc.cavity-inspection.fact2.value">Every 6 months</span></li>
+            <li><strong data-i18n="svc.cavity-inspection.fact3.label">Anaesthesia</strong> <span data-i18n="svc.cavity-inspection.fact3.value">Only if a filling is placed</span></li>
+            <li><strong data-i18n="svc.cavity-inspection.fact4.label">Recovery</strong> <span data-i18n="svc.cavity-inspection.fact4.value">None</span></li>
+            </ul>
+            <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.bookTreatment">Book this treatment</a>
+         </aside>
+
+      </div>
+
+   </section>
+
+   <section class="services related">
+
+      <h1 class="heading" data-i18n="detail.related">related services</h1>
+
+      <div class="box-container container">
+
+         <a href="oral-hygiene.html" class="box">
+            <span class="box-icon"><i class="fas fa-soap"></i></span>
+            <h3 data-i18n="svc.oral-hygiene.title">Oral Hygiene Experts</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="root-canal.html" class="box">
+            <span class="box-icon"><i class="fas fa-syringe"></i></span>
+            <h3 data-i18n="svc.root-canal.title">Root Canal Specialist</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="pediatric-dentistry.html" class="box">
+            <span class="box-icon"><i class="fas fa-child-reaching"></i></span>
+            <h3 data-i18n="svc.pediatric-dentistry.title">Pediatric Dentistry</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+      </div>
+
+   </section>
+
+</main>
+
+<footer class="site-footer">
+   <p class="credit">&copy; <span data-year>2026</span> <span class="brand">Bright Smile Clinic</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+</footer>
+
+</body>
+
+</html>

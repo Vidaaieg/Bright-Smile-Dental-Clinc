@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bright Smile Clinic">
+   <defs>
+      <linearGradient id="bs-tooth" x1="0" y1="0" x2="1" y2="1">
+         <stop offset="0" stop-color="#33B4FF"/>
+         <stop offset="1" stop-color="#006DAF"/>
+      </linearGradient>
+   </defs>
+
+   <!-- tooth -->
+   <path fill="url(#bs-tooth)" d="M17 11C10.5 11 6 16 6 23c0 6.5 2.3 11.2 4.2 16.8C12 45.8 13 56 18.2 56c4.7 0 5.2-11 10.4-11s5.7 11 10.4 11c5.2 0 6.2-10.2 8-16.2C48.9 34.2 51.2 29.5 51.2 23c0-7-4.5-12-11-12-4.6 0-7.4 2.8-11.6 2.8S21.6 11 17 11z"/>
+
+   <!-- smile -->
+   <path fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" d="M17.5 25.5q11.1 10 22.2 0"/>
+
+   <!-- sparkle -->
+   <path fill="#FFC53D" stroke="#fff" stroke-width="2" stroke-linejoin="round" d="M54 3.5l2.2 6.3 6.3 2.2-6.3 2.2L54 20.5l-2.2-6.3-6.3-2.2 6.3-2.2z"/>
+</svg>

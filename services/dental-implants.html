@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dental Implants | Bright Smile Clinic</title>
+   <meta name="description" content="A permanent replacement for a missing tooth that looks and works like the real thing.">
+
+   <!-- fonts and icons (Cairo carries the Arabic glyphs) -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+   <link rel="alternate icon" href="../images/favicon.png">
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="../lang/translations.js" defer></script>
+   <script src="../lang/services.js" defer></script>
+   <script src="../js/supabase-client.js" defer></script>
+   <script src="../js/dental.js" defer></script>
+   <script src="../js/auth.js" defer></script>
+   <script src="../js/analytics.js" defer></script>
+   <script src="../js/bg-tooth.js" defer></script>
+</head>
+
+<body>
+
+<div class="bg-tooth" aria-hidden="true">
+   <div class="bg-tooth-3d" id="bg-tooth-3d">
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--front"></i>
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--back"></i>
+   </div>
+</div>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+   <div class="container header-inner">
+
+      <a href="../index.html#home" class="logo" aria-label="Bright Smile Clinic — home">
+         <img src="../images/logo.svg" alt="" class="logo-mark" width="44" height="44">
+         <span class="logo-text"><span class="logo-name">Bright <span>Smile</span></span><span class="logo-sub">Clinic</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+         <a href="../index.html#home" data-i18n="nav.home">Home</a>
+         <a href="../index.html#about" data-i18n="nav.about">About</a>
+      <a href="../index.html#services" class="current" aria-current="true" data-i18n="nav.services">Services</a>
+         <a href="../pages/contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang-switch">
+         <select id="lang-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="ar">ع</option>
+            <option value="de">DE</option>
+            <option value="ru">RU</option>
+         </select>
+      </div>
+
+      <div class="header-actions">
+         <a href="../pages/login.html" class="link-btn" data-i18n="btn.login">Login</a>
+         <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.appointment">Make Appointment</a>
+      </div>
+
+      <button type="button" id="menu-btn" class="menu-btn" data-i18n-aria="nav.menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
+         <span></span>
+         <span></span>
+         <span></span>
+      </button>
+
+   </div>
+
+</header>
+
+<!-- header section ends -->
+
+<main>
+
+   <section class="page-hero">
+      <div class="container">
+         <p class="breadcrumb">
+            <a href="../index.html#home" data-i18n="nav.home">Home</a><span class="sep">/</span>
+            <a href="../index.html#services" data-i18n="nav.services">Services</a><span class="sep">/</span>
+            <span data-i18n="svc.dental-implants.title">Dental Implants</span>
+         </p>
+         <h1 data-i18n="svc.dental-implants.title">Dental Implants</h1>
+         <p data-i18n="svc.dental-implants.tagline">A permanent replacement for a missing tooth that looks and works like the real thing.</p>
+      </div>
+   </section>
+
+   <section class="detail">
+
+      <div class="container detail-grid">
+
+         <div class="detail-content">
+
+            <div class="detail-figure">
+               <i class="fas fa-tooth"></i>
+            </div>
+
+            <p data-i18n="svc.dental-implants.intro">An implant is a titanium root placed into the jawbone, with a crown fixed on top. Unlike a bridge, it does not rely on the teeth beside it, and unlike a denture it does not move. It is the closest thing to getting your own tooth back.</p>
+
+            <h2 data-i18n="detail.involves">What the treatment involves</h2>
+            <p data-i18n="svc.dental-implants.involves">We first check that there is enough healthy bone to hold the implant, using a scan. The implant is then placed under local anaesthetic in a procedure most patients find easier than they expected. Over the next few months the bone grows onto the titanium and locks it in place. Once it is stable, we take an impression and fit the final crown.</p>
+
+            <h2 data-i18n="detail.included">What is included</h2>
+            <ul class="check-list">
+            <li data-i18n="svc.dental-implants.inc1">A scan to assess bone volume and plan the position</li>
+            <li data-i18n="svc.dental-implants.inc2">Placement of the titanium implant under local anaesthetic</li>
+            <li data-i18n="svc.dental-implants.inc3">A temporary tooth while the implant integrates</li>
+            <li data-i18n="svc.dental-implants.inc4">A custom-made crown matched to your other teeth</li>
+            <li data-i18n="svc.dental-implants.inc5">Follow-up checks to confirm the implant is stable</li>
+            </ul>
+
+            <h2 data-i18n="detail.steps">Step by step</h2>
+            <ol class="steps">
+            <li data-i18n="svc.dental-implants.step1">Assessment and scan to plan exactly where the implant goes.</li>
+            <li data-i18n="svc.dental-implants.step2">The implant is placed and the gum is closed over it.</li>
+            <li data-i18n="svc.dental-implants.step3">Three to six months while the bone fuses to the implant.</li>
+            <li data-i18n="svc.dental-implants.step4">An impression is taken for your permanent crown.</li>
+            <li data-i18n="svc.dental-implants.step5">The crown is fitted and your bite is adjusted.</li>
+            </ol>
+
+            <h2 data-i18n="detail.aftercare">Aftercare</h2>
+            <p data-i18n="svc.dental-implants.aftercare">Expect some swelling and discomfort for two to three days after placement; ice and the painkillers we prescribe are usually enough. Stick to soft food and avoid chewing on that side for the first week. Do not smoke during healing, as it is the single biggest cause of implant failure. Once the crown is fitted, clean it like a natural tooth and keep your six-month checks.</p>
+
+         </div>
+
+         <aside class="detail-aside">
+            <h3 data-i18n="detail.facts">Quick facts</h3>
+            <ul class="facts">
+            <li><strong data-i18n="svc.dental-implants.fact1.label">Total treatment time</strong> <span data-i18n="svc.dental-implants.fact1.value">3 to 6 months</span></li>
+            <li><strong data-i18n="svc.dental-implants.fact2.label">Surgery length</strong> <span data-i18n="svc.dental-implants.fact2.value">45 to 90 minutes</span></li>
+            <li><strong data-i18n="svc.dental-implants.fact3.label">Anaesthesia</strong> <span data-i18n="svc.dental-implants.fact3.value">Local anaesthetic</span></li>
+            <li><strong data-i18n="svc.dental-implants.fact4.label">Lifespan</strong> <span data-i18n="svc.dental-implants.fact4.value">15 years or more with good care</span></li>
+            </ul>
+            <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.bookTreatment">Book this treatment</a>
+         </aside>
+
+      </div>
+
+   </section>
+
+   <section class="services related">
+
+      <h1 class="heading" data-i18n="detail.related">related services</h1>
+
+      <div class="box-container container">
+
+         <a href="cosmetic-dentistry.html" class="box">
+            <span class="box-icon"><i class="fas fa-wand-magic-sparkles"></i></span>
+            <h3 data-i18n="svc.cosmetic-dentistry.title">Cosmetic Dentistry</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="root-canal.html" class="box">
+            <span class="box-icon"><i class="fas fa-syringe"></i></span>
+            <h3 data-i18n="svc.root-canal.title">Root Canal Specialist</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="oral-hygiene.html" class="box">
+            <span class="box-icon"><i class="fas fa-soap"></i></span>
+            <h3 data-i18n="svc.oral-hygiene.title">Oral Hygiene Experts</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+      </div>
+
+   </section>
+
+</main>
+
+<footer class="site-footer">
+   <p class="credit">&copy; <span data-year>2026</span> <span class="brand">Bright Smile Clinic</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+</footer>
+
+</body>
+
+</html>

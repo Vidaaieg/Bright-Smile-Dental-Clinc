@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Live Dental Advisory | Bright Smile Clinic</title>
+   <meta name="description" content="Talk to a dentist about your problem before you decide whether you need to come in.">
+
+   <!-- fonts and icons (Cairo carries the Arabic glyphs) -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+   <link rel="alternate icon" href="../images/favicon.png">
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="../lang/translations.js" defer></script>
+   <script src="../lang/services.js" defer></script>
+   <script src="../js/supabase-client.js" defer></script>
+   <script src="../js/dental.js" defer></script>
+   <script src="../js/auth.js" defer></script>
+   <script src="../js/analytics.js" defer></script>
+   <script src="../js/bg-tooth.js" defer></script>
+</head>
+
+<body>
+
+<div class="bg-tooth" aria-hidden="true">
+   <div class="bg-tooth-3d" id="bg-tooth-3d">
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--front"></i>
+      <i class="fas fa-tooth bg-tooth-face bg-tooth-face--back"></i>
+   </div>
+</div>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+   <div class="container header-inner">
+
+      <a href="../index.html#home" class="logo" aria-label="Bright Smile Clinic — home">
+         <img src="../images/logo.svg" alt="" class="logo-mark" width="44" height="44">
+         <span class="logo-text"><span class="logo-name">Bright <span>Smile</span></span><span class="logo-sub">Clinic</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+         <a href="../index.html#home" data-i18n="nav.home">Home</a>
+         <a href="../index.html#about" data-i18n="nav.about">About</a>
+      <a href="../index.html#services" class="current" aria-current="true" data-i18n="nav.services">Services</a>
+         <a href="../pages/contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="lang-switch">
+         <select id="lang-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="ar">ع</option>
+            <option value="de">DE</option>
+            <option value="ru">RU</option>
+         </select>
+      </div>
+
+      <div class="header-actions">
+         <a href="../pages/login.html" class="link-btn" data-i18n="btn.login">Login</a>
+         <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.appointment">Make Appointment</a>
+      </div>
+
+      <button type="button" id="menu-btn" class="menu-btn" data-i18n-aria="nav.menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
+         <span></span>
+         <span></span>
+         <span></span>
+      </button>
+
+   </div>
+
+</header>
+
+<!-- header section ends -->
+
+<main>
+
+   <section class="page-hero">
+      <div class="container">
+         <p class="breadcrumb">
+            <a href="../index.html#home" data-i18n="nav.home">Home</a><span class="sep">/</span>
+            <a href="../index.html#services" data-i18n="nav.services">Services</a><span class="sep">/</span>
+            <span data-i18n="svc.dental-advisory.title">Live Dental Advisory</span>
+         </p>
+         <h1 data-i18n="svc.dental-advisory.title">Live Dental Advisory</h1>
+         <p data-i18n="svc.dental-advisory.tagline">Talk to a dentist about your problem before you decide whether you need to come in.</p>
+      </div>
+   </section>
+
+   <section class="detail">
+
+      <div class="container detail-grid">
+
+         <div class="detail-content">
+
+            <div class="detail-figure">
+               <i class="fas fa-headset"></i>
+            </div>
+
+            <p data-i18n="svc.dental-advisory.intro">Not every ache needs an appointment, and not every problem can wait. Our live advisory service lets you describe your symptoms, send a photograph and get an honest answer from a dentist about how urgent it is and what it is likely to cost.</p>
+
+            <h2 data-i18n="detail.involves">What the treatment involves</h2>
+            <p data-i18n="svc.dental-advisory.involves">You book a short video or phone consultation at a time that suits you. Send us a clear photograph of the tooth or gum beforehand if you can. The dentist will talk through your symptoms, explain the likely cause, tell you what can be managed at home and what needs treatment, and book you in straight away if it is urgent.</p>
+
+            <h2 data-i18n="detail.included">What is included</h2>
+            <ul class="check-list">
+            <li data-i18n="svc.dental-advisory.inc1">A video or phone consultation with a qualified dentist</li>
+            <li data-i18n="svc.dental-advisory.inc2">Review of any photographs you send in advance</li>
+            <li data-i18n="svc.dental-advisory.inc3">A clear explanation of the likely cause</li>
+            <li data-i18n="svc.dental-advisory.inc4">Advice on what you can safely manage at home</li>
+            <li data-i18n="svc.dental-advisory.inc5">Priority booking if the problem needs treating</li>
+            </ul>
+
+            <h2 data-i18n="detail.steps">Step by step</h2>
+            <ol class="steps">
+            <li data-i18n="svc.dental-advisory.step1">Book a consultation slot online or by phone.</li>
+            <li data-i18n="svc.dental-advisory.step2">Send a photograph of the affected tooth or gum if possible.</li>
+            <li data-i18n="svc.dental-advisory.step3">Speak to the dentist at your booked time.</li>
+            <li data-i18n="svc.dental-advisory.step4">You receive a clear recommendation and a rough cost.</li>
+            <li data-i18n="svc.dental-advisory.step5">If treatment is needed, we book it there and then.</li>
+            </ol>
+
+            <h2 data-i18n="detail.aftercare">Aftercare</h2>
+            <p data-i18n="svc.dental-advisory.aftercare">You will get a short written summary of the advice you were given, so you are not relying on memory. If we recommended coming in, the summary includes what the appointment will cover. Remote advice has limits — a dentist cannot diagnose everything through a screen, and we will say so plainly when an examination is the only way to be sure.</p>
+
+         </div>
+
+         <aside class="detail-aside">
+            <h3 data-i18n="detail.facts">Quick facts</h3>
+            <ul class="facts">
+            <li><strong data-i18n="svc.dental-advisory.fact1.label">Consultation length</strong> <span data-i18n="svc.dental-advisory.fact1.value">10 to 20 minutes</span></li>
+            <li><strong data-i18n="svc.dental-advisory.fact2.label">Available</strong> <span data-i18n="svc.dental-advisory.fact2.value">Every day except Friday</span></li>
+            <li><strong data-i18n="svc.dental-advisory.fact3.label">Format</strong> <span data-i18n="svc.dental-advisory.fact3.value">Video or phone</span></li>
+            <li><strong data-i18n="svc.dental-advisory.fact4.label">Follow-up</strong> <span data-i18n="svc.dental-advisory.fact4.value">Written summary included</span></li>
+            </ul>
+            <a href="../pages/appointment.html" class="link-btn" data-i18n="btn.bookTreatment">Book this treatment</a>
+         </aside>
+
+      </div>
+
+   </section>
+
+   <section class="services related">
+
+      <h1 class="heading" data-i18n="detail.related">related services</h1>
+
+      <div class="box-container container">
+
+         <a href="cavity-inspection.html" class="box">
+            <span class="box-icon"><i class="fas fa-magnifying-glass"></i></span>
+            <h3 data-i18n="svc.cavity-inspection.title">Cavity Inspection</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="root-canal.html" class="box">
+            <span class="box-icon"><i class="fas fa-syringe"></i></span>
+            <h3 data-i18n="svc.root-canal.title">Root Canal Specialist</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+         <a href="oral-hygiene.html" class="box">
+            <span class="box-icon"><i class="fas fa-soap"></i></span>
+            <h3 data-i18n="svc.oral-hygiene.title">Oral Hygiene Experts</h3>
+            <span class="box-link" data-i18n="btn.readMore">Read more</span>
+         </a>
+
+      </div>
+
+   </section>
+
+</main>
+
+<footer class="site-footer">
+   <p class="credit">&copy; <span data-year>2026</span> <span class="brand">Bright Smile Clinic</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+</footer>
+
+</body>
+
+</html>
